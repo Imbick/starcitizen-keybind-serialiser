@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Serialisation library for Star Citizen's keybinding profile. See https://support.robertsspaceindustries.com/hc/en-us/articles/360000134267 for information about profiles.</Description>
+    <PackageId>Imbick.StarCitizen.Keybind.Serialiser</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Adam Naylor</Authors>
+    <Company>Imbick</Company>
     <!--
     <Version>1.2.3.4</Version>
     <Authors>Author 1</Authors>
@@ -22,7 +26,6 @@
     <PackageTags>Tags</PackageTags>
     <PackageReleaseNotes>Release</PackageReleaseNotes>
     -->
-    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
   <ItemGroup>
