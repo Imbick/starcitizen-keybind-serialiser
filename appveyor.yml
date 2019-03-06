@@ -15,6 +15,7 @@ build:
   verbosity: minimal
 
 after_build:
+  - dotnet build Imbick.StarCitizen.Keybind.Serialiser --configuration Release
   - dotnet publish Imbick.StarCitizen.Keybind.Serialiser --configuration Release
 
 test_script:
