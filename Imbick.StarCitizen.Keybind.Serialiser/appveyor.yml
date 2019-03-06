@@ -2,27 +2,11 @@
   only:
   - master
 
-dotnet_csproj:
-  patch: true
-  file: '**\*.csproj'
-  version: '1.0.0'
-  package_version: '1.0.0'
-  assembly_version: '1.0.0'
-  file_version: '1.0.0'
-  informational_version: '1.0.0'
+
 
 build: 
-  publish_nuget: true
   verbosity: minimal
 
 after_build:
   - cmd: dotnet publish Imbick.StarCitizen.Keybind.Serialiser
 
-deploy:
-  provider: NuGet
-  server:                  # remove to push to NuGet.org
-  api_key:
-    secure: 0ppCVt5jFMx40Ag++qBE/XR9T1QJqfe6enxZPHUOcG5g3rUxJ5Yln08I5KdssN3r
-  skip_symbols: false
-  symbol_server:           # remove to push symbols to SymbolSource.org
-  artifact: /.*\.nupkg/
