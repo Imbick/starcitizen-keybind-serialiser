@@ -9,6 +9,9 @@
 
 publish_nuget: true
 
+build_script:
+  - cmd: dotnet publish
+
 deploy:
   provider: NuGet
   server:                  # remove to push to NuGet.org
