@@ -1,4 +1,8 @@
-﻿dotnet_csproj:
+﻿branches:
+  only:
+  - master
+
+dotnet_csproj:
   patch: true
   file: '**\*.csproj'
   version: '1.0.0'
@@ -9,9 +13,10 @@
 
 build: 
   publish_nuget: true
+  verbosity: minimal
 
-build_script:
-  - cmd: dotnet publish
+after_build:
+  - cmd: dotnet publish Imbick.StarCitizen.Keybind.Serialiser
 
 deploy:
   provider: NuGet
