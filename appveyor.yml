@@ -2,10 +2,6 @@
   only:
   - master
 
-install:
-- cmd: >-
-    dotnet restore
-
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
@@ -20,7 +16,10 @@ build:
   verbosity: minimal
 
 after_build:
-  - cmd: dotnet publish Imbick.StarCitizen.Keybind.Serialiser
+- cmd: dotnet publish Imbick.StarCitizen.Keybind.Serialiser --configuration Release
+
+test_script:
+- cmd: dotnet test Imbick.StarCitizen.Keybind.Serialiser.Tests --configuration Release
 
 deploy:
   provider: NuGet
