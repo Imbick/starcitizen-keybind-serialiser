@@ -11,8 +11,7 @@ dotnet_csproj:
   file_version: '1.0.0'
   informational_version: '1.0.0'
 
-build: 
-  publish_nuget: true
+build:
   verbosity: minimal
 
 after_build:
