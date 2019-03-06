@@ -16,7 +16,7 @@ build:
 
 after_build:
   - dotnet publish Imbick.StarCitizen.Keybind.Serialiser --configuration Release
-  - dotnet pack Imbick.StarCitizen.Keybind.Serialiser --configuration Release --verbosity diagnostic
+  - dotnet pack Imbick.StarCitizen.Keybind.Serialiser --configuration Release
 
 test_script:
 - cmd: dotnet test Imbick.StarCitizen.Keybind.Serialiser.Tests --configuration Release
