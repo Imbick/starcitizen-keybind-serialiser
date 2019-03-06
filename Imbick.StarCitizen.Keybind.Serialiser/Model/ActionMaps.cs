@@ -1,6 +1,8 @@
 ﻿namespace Imbick.StarCitizen.Keybind.Serialiser.Model {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
 
     public partial class ActionMaps {
         public static ActionMaps Default => DeserialiseDefaults();
@@ -15,15 +17,15 @@
 
             foreach (var actionMap in overrides.actionmap) {
                 var targetActionMap = this.actionmap.FirstOrDefault(a => a.name == actionMap.name);
-                if (targetActionMap == null) {
+                if (targetActionMap == null) { //we are adding a whole new action map
                     Add(actionMap);
                 } else {
                     foreach (var action in actionMap.action) {
                         var targetAction = targetActionMap.action.FirstOrDefault(a => a.name == action.name);
-                        if (targetAction == null) {
+                        if (targetAction == null) { //this is a new action being added to an existing action map
                             targetActionMap.Add(action);
                         } else {
-                            targetAction.Overwrite(action);
+                            targetAction.Overwrite(action); //this is a change to an existing action inside an existing action map
                         }
                     }
                 }
@@ -35,9 +37,27 @@
             this.actionmap.Add(copy);
         }
 
+        private KeyBindInput ToKeyBindInput(string kb) => (KeyBindInput) Enum.Parse(typeof(KeyBindInput), kb);
+
+        public IDictionary<string, IDictionary<string, IEnumerable<KeyBindInput>>> ToDictionary() {
+            var result = new Dictionary<string, IDictionary<string, IEnumerable<KeyBindInput>>>();
+            foreach (var actionMap in this.actionmap.Where(m => m.action.Any())) {
+                result.Add(actionMap.name, new Dictionary<string, IEnumerable<KeyBindInput>>());
+                foreach (var action in actionMap.action) {
+                    var keyBinds = action.rebind.input.Split('+')
+                        .Select(ToKeyBindInput);
+                    result[actionMap.name].Add(action.name, keyBinds);
+                }
+            }
+
+            return result;
+        }
+
         private static ActionMaps DeserialiseDefaults() {
             var deserialiser = new ActionMapsSerialiser();
-            return deserialiser.Deserialise("default-actionmaps.xml");
+            var assembly = typeof(ActionMaps).GetTypeInfo().Assembly;
+            var file = assembly.GetManifestResourceStream("Imbick.StarCitizen.Keybind.Serialiser.default-actionmaps.xml");
+            return deserialiser.Deserialise(file);
         }
     }
 

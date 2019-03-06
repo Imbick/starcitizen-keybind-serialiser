@@ -1,13 +1,35 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Serialisation library for Star Citizen's keybinding profile. See https://support.robertsspaceindustries.com/hc/en-us/articles/360000134267 for information about profiles.</Description>
+    <!--
+    <Version>1.2.3.4</Version>
+    <Authors>Author 1</Authors>
+    <Company>Company XYZ</Company>
+    <Product>Product 2</Product>
+    <PackageId>MyApp</PackageId>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Description>Description here</Description>
+    <Copyright>Copyright</Copyright>
+    <PackageLicenseUrl>License URL</PackageLicenseUrl>
+    <PackageProjectUrl>Project URL</PackageProjectUrl>
+    <PackageIconUrl>Icon URL</PackageIconUrl>
+    <RepositoryUrl>Repo URL</RepositoryUrl>
+    <RepositoryType>Repo type</RepositoryType>
+    <PackageTags>Tags</PackageTags>
+    <PackageReleaseNotes>Release</PackageReleaseNotes>
+    -->
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="default-actionmaps.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Remove="Imbick.StarCitizen.Keybind.Serialiser.nuspec" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="default-actionmaps.xml" />
   </ItemGroup>
 
 </Project>
