@@ -21,6 +21,10 @@ after_build:
 test_script:
 - cmd: dotnet test Imbick.StarCitizen.Keybind.Serialiser.Tests --configuration Release
 
+artifacts:
+- path: **\*.nupkg
+  name: nupkg
+
 deploy:
   provider: NuGet
   server:                  # remove to push to NuGet.org
