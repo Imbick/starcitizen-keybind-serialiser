@@ -7,7 +7,8 @@
   file_version: '1.0.0'
   informational_version: '1.0.0'
 
-publish_nuget: true
+build: 
+  publish_nuget: true
 
 build_script:
   - cmd: dotnet publish
