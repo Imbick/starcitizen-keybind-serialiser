@@ -93,9 +93,11 @@ namespace Imbick.StarCitizen.Keybind.Serialiser.Tests {
             Assert.True(dictionary.First().Value.ContainsKey("some_action"));
             Assert.True(dictionary.First().Value.ContainsKey("some_other_action"));
             Assert.True(dictionary.Last().Value.ContainsKey("some_other_action_again"));
-            Assert.Equal(2, dictionary.First().Value.First().Value.Count());
-            Assert.Equal(KeyBindInput.backspace, dictionary.First().Value.First().Value.First());
-            Assert.Equal(KeyBindInput.l, dictionary.First().Value.First().Value.Last());
+            Assert.Equal(2, dictionary.First().Value.First().Value.Inputs.Count());
+            Assert.Equal(KeyBindInput.backspace, dictionary.First().Value.First().Value.Inputs.First());
+            Assert.Equal(KeyBindInput.l, dictionary.First().Value.First().Value.Inputs.Last());
+            Assert.Equal(ActivationMode.double_tap, dictionary.First().Value.First().Value.ActivationMode);
+            Assert.Equal(ActivationMode.none, dictionary.First().Value.Last().Value.ActivationMode);
         }
 
 
@@ -107,7 +109,7 @@ namespace Imbick.StarCitizen.Keybind.Serialiser.Tests {
                     action = new List<ActionMapsActionmapAction> {
                         new ActionMapsActionmapAction {
                             name = "some_action",
-                            rebind = new ActionMapsActionmapActionRebind {input = "backspace"}
+                            rebind = new ActionMapsActionmapActionRebind {input = "backspace", activationMode = "double_tap"}
                         },
                         new ActionMapsActionmapAction {
                             name = "some_other_action",

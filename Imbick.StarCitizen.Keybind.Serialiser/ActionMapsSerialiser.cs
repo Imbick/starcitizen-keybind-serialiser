@@ -5,9 +5,16 @@ namespace Imbick.StarCitizen.Keybind.Serialiser {
     using Model;
 
     public class ActionMapsSerialiser {
-        public ActionMaps Deserialise(string filename) {
+        public ActionMaps DeserialiseFile(string filename) {
             using (var fileStream = File.OpenRead(filename)) {
                 return Deserialise(fileStream);
+            }
+        }
+
+        public ActionMaps Deserialise(string rawXml) {
+            var serialiser = new XmlSerializer(typeof(ActionMaps));
+            using (var reader = new StringReader(rawXml)) {
+                return serialiser.Deserialize(reader) as ActionMaps;
             }
         }
 

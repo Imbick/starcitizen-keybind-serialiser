@@ -37,16 +37,18 @@
             this.actionmap.Add(copy);
         }
 
-        private KeyBindInput ToKeyBindInput(string kb) => (KeyBindInput) Enum.Parse(typeof(KeyBindInput), kb);
+        private ActivationMode ToActivationMode(string am) {
+            if (string.IsNullOrEmpty(am))
+                return (ActivationMode) 0;
+            return (ActivationMode) Enum.Parse(typeof(ActivationMode), am);
+        }
 
-        public IDictionary<string, IDictionary<string, IEnumerable<KeyBindInput>>> ToDictionary() {
-            var result = new Dictionary<string, IDictionary<string, IEnumerable<KeyBindInput>>>();
+        public ActionMapsDictionary ToDictionary() {
+            var result = new ActionMapsDictionary();
             foreach (var actionMap in this.actionmap.Where(m => m.action.Any())) {
-                result.Add(actionMap.name, new Dictionary<string, IEnumerable<KeyBindInput>>());
+                result.Add(actionMap.name, new Dictionary<string, RebindModel>());
                 foreach (var action in actionMap.action) {
-                    var keyBinds = action.rebind.input.Split('+')
-                        .Select(ToKeyBindInput);
-                    result[actionMap.name].Add(action.name, keyBinds);
+                    result[actionMap.name].Add(action.name, new RebindModel(action.rebind.input, ToActivationMode(action.rebind.activationMode)));
                 }
             }
 
