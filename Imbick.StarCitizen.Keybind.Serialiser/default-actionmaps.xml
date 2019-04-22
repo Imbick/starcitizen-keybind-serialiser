@@ -68,7 +68,7 @@
       <rebind input="kb1_lalt+np_7"/>
     </action>
     <action name="v_flightready">
-      <rebind input="kb1_8"/>
+      <rebind input="r"/>
     </action>
     <action name="v_doors_open_all">
       <rebind input="kb1_9"/>
@@ -129,7 +129,7 @@
       <rebind input="kb1_ "/>
     </action>
     <action name="v_view_look_behind">
-      <rebind input="kb1_lalt+z"/>
+      <rebind input="z"/>
     </action>
     <!-- UNKNOWN BELOW -->
     <action name="v_view_interact">
@@ -146,6 +146,9 @@
 
   <!-- FLIGHT - MOVEMENT -->
   <actionmap name="spaceship_movement">
+    <action name="v_ifcs_toggle_cruise_control">
+      <rebind input="c"/>
+    </action>
     <action name="v_pitch_up">
       <rebind input="kb1_ "/>
     </action>
@@ -542,7 +545,7 @@
       <rebind input="kb1_4"/>
     </action>
     <action name="v_power_toggle">
-      <rebind input="kb1_5"/>
+      <rebind input="u"/>
     </action>
   </actionmap>
 
