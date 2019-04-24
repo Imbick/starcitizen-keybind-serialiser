@@ -28,9 +28,16 @@ namespace Imbick.StarCitizen.Keybind.Serialiser.Model {
         private static KeyBindInput ToKeyBindInput(string kb) => (KeyBindInput) Enum.Parse(typeof(KeyBindInput), kb);
 
         private static IList<KeyBindInput> Convert(string input) {
-            return input.Split('+')
-                .Select(ToKeyBindInput)
-                .ToList();
+            var inputs = input.Split('+');
+            var result = new List<KeyBindInput>();
+            foreach (var i in inputs) {
+                if (!Enum.TryParse(i, out KeyBindInput keyBind))
+                    throw new NotSupportedException($"Input value {i} is not a supported key bind.");
+                result.Add(keyBind);
+
+            }
+
+            return result;
         }
     }
 
