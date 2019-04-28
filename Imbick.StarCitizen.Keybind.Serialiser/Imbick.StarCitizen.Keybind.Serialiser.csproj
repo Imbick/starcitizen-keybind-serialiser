@@ -4,13 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Serialisation library for Star Citizen's keybinding profile. See https://support.robertsspaceindustries.com/hc/en-us/articles/360000134267 for information about profiles.</Description>
     <PackageId>Imbick.StarCitizen.Keybind.Serialiser</PackageId>
-    <Version>1.0.7</Version>
+    <Version>1.0.8</Version>
     <Authors>Adam Naylor</Authors>
     <Company>Imbick</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>1.0.7.0</AssemblyVersion>
-    <FileVersion>1.0.7.0</FileVersion>
-    <PackageReleaseNotes>Adds correct default binds for some of 3.5 keys.</PackageReleaseNotes>
+    <AssemblyVersion>1.0.8.0</AssemblyVersion>
+    <FileVersion>1.0.8.0</FileVersion>
+    <PackageReleaseNotes>Adds extra defaults for flight.</PackageReleaseNotes>
     <!--
     <Version>1.2.3.4</Version>
     <Authors>Author 1</Authors>

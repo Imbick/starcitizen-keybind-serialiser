@@ -146,6 +146,9 @@
 
   <!-- FLIGHT - MOVEMENT -->
   <actionmap name="spaceship_movement">
+    <action name="v_ifcs_toggle_speed_limiter">
+      <rebind input="kb1_lalt+minus"/>
+    </action>
     <action name="v_ifcs_toggle_cruise_control">
       <rebind input="c"/>
     </action>
@@ -234,7 +237,7 @@
       <rebind input="kb1_2"/>
     </action>
     <action name="v_ifcs_toggle_gforce_safety">
-      <rebind input="kb1_ "/>
+      <rebind input="kb1_lalt+i"/>
     </action>
     <action name="v_ifcs_toggle_comstab">
       <rebind input="kb1_ "/>
