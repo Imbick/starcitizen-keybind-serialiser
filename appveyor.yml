@@ -5,11 +5,11 @@
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
-  version: '1.0.6'
-  package_version: '1.0.6'
-  assembly_version: '1.0.6'
-  file_version: '1.0.6'
-  informational_version: '1.0.6'
+  version: '1.0.8'
+  package_version: '1.0.8'
+  assembly_version: '1.0.8'
+  file_version: '1.0.8'
+  informational_version: '1.0.8'
 
 build:
   verbosity: minimal
