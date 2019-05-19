@@ -8,7 +8,10 @@ namespace Imbick.StarCitizen.Keybind.Serialiser.Model {
     public enum ActivationMode {
         none,
         press,
-        double_tap
+        delayed_press,
+        double_tap,
+        hold,
+        delayed_hold
     }
 
     public class RebindModel
@@ -24,8 +27,6 @@ namespace Imbick.StarCitizen.Keybind.Serialiser.Model {
             Inputs = new ReadOnlyCollection<KeyBindInput>(inputs.ToList());
             ActivationMode = activationMode;
         }
-
-        private static KeyBindInput ToKeyBindInput(string kb) => (KeyBindInput) Enum.Parse(typeof(KeyBindInput), kb);
 
         private static IList<KeyBindInput> Convert(string input) {
             var inputs = input.Split('+');

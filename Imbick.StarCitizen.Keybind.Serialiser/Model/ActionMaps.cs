@@ -48,7 +48,12 @@
             foreach (var actionMap in this.actionmap.Where(m => m.action.Any())) {
                 result.Add(actionMap.name, new Dictionary<string, RebindModel>());
                 foreach (var action in actionMap.action) {
-                    result[actionMap.name].Add(action.name, new RebindModel(action.rebind.input, ToActivationMode(action.rebind.activationMode)));
+                    try {
+                        result[actionMap.name].Add(action.name,
+                            new RebindModel(action.rebind.input, ToActivationMode(action.rebind.activationMode)));
+                    } catch (NotSupportedException e) {
+                        throw new NotSupportedException($"Action {action.name} encountered with unsupported input whilst converting to dictionary. See inner exception for specific input.", e);
+                    }
                 }
             }
 

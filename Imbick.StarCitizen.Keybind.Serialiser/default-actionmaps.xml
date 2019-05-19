@@ -147,7 +147,7 @@
   <!-- FLIGHT - MOVEMENT -->
   <actionmap name="spaceship_movement">
     <action name="v_ifcs_toggle_speed_limiter">
-      <rebind input="kb1_lalt+minus"/>
+      <rebind input="kb1_lalt+kb1_np_subtract"/>
     </action>
     <action name="v_ifcs_toggle_cruise_control">
       <rebind input="c"/>
@@ -237,7 +237,7 @@
       <rebind input="kb1_2"/>
     </action>
     <action name="v_ifcs_toggle_gforce_safety">
-      <rebind input="kb1_lalt+i"/>
+      <rebind input="kb1_lalt+kb1_i"/>
     </action>
     <action name="v_ifcs_toggle_comstab">
       <rebind input="kb1_ "/>
@@ -327,9 +327,6 @@
     <action name="v_toggle_mouse_aim_only">
       <rebind input="kb1_rshift"/>
     </action>
-    <action name="v_toggle_weapon_gimbal_lock">
-      <rebind input="kb1_lalt+j"/>
-    </action>
     <action name="v_target_reticle_focus">
       <rebind input="kb1_r"/>
     </action>
@@ -386,7 +383,7 @@
   <!-- FLIGHT - TURRETS -->
   <actionmap name="spaceship_turret">
     <action name="v_toggle_weapon_gimbal_lock">
-      <rebind input="kb1_lalt+j"/>
+      <rebind input="kb1_lalt+kb1_j"/>
     </action>
     <action name="v_aim_yaw_left">
       <rebind input="kb1_ "/>
@@ -883,7 +880,7 @@
       <rebind input="kb1_f1"/>
     </action>
     <action name="v_flightready">
-      <rebind input="kb1_ "/>
+      <rebind input="kb1_r"/>
     </action>
     <action name="v_doors_open_all">
       <rebind input="kb1_ "/>
