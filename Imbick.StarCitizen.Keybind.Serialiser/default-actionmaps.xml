@@ -1274,7 +1274,7 @@
       <rebind input="kb1_np_9"/>
     </action>
     <action name="view_reset_saved">
-      <rebind input="kb1_np_0"/>
+      <rebind input="kb1_np_multiply"/>
     </action>
     <action name="view_move_target_X_pos">
       <rebind input="kb1_right"/>

@@ -1,1 +1,1 @@
-nuget add Imbick.StarCitizen.Keybind.Serialiser\bin\Debug\Imbick.StarCitizen.Keybind.Serialiser.1.0.11.nupkg -source C:\Users\anaylor\nuget-feed
+nuget add Imbick.StarCitizen.Keybind.Serialiser\bin\Debug\Imbick.StarCitizen.Keybind.Serialiser.1.0.12.nupkg -source C:\Users\anaylor\nuget-feed
